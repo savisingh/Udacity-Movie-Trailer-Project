@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vwyZH85NQC4" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg" width="220" height="342">
+    <h2>Toy Story</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="V75dMMIW2B4" data-toggle="modal" data-target="#trailer">
+    <img src="https://i.ytimg.com/vi/4LhkXX9r6kY/maxresdefault.jpg" width="220" height="342">
+    <h2>Lord of the Rings: The Fellowship of the Ring</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4M7LIcH8C9U" data-toggle="modal" data-target="#trailer">
+    <img src="https://hips.hearstapps.com/sev.h-cdn.co/assets/15/31/1438124471-the-notebook-2004-copy.jpg" width="220" height="342">
+    <h2>The Notebook</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="zFjaJbihWwc" data-toggle="modal" data-target="#trailer">
+    <img src="https://static1.squarespace.com/static/56f2f43b20c64775298d66aa/t/57bcab76414fb51a85d1e226/1471982465255/" width="220" height="342">
+    <h2>Super Bad</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="SUXWAEX2jlg" data-toggle="modal" data-target="#trailer">
+    <img src="https://resizing.flixster.com/XugIZHeXNKH7FmC4qsqD319_Ke4=/206x305/v1.bTsxMTM3MjQ0ODtqOzE3NTQ2OzEyMDA7MTE5MTsxNTg4" width="220" height="342">
+    <h2>Fight Club</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="LKFuXETZUsI" data-toggle="modal" data-target="#trailer">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/61geeb4TJ4L._SX342_.jpg" width="220" height="342">
+    <h2>Moana</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="VyHV0BRtdxo" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/c0/Harry_Potter_and_the_Philosopher%27s_Stone_posters.JPG" width="220" height="342">
+    <h2>Harry Potter and the Philosopher's Stone</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="aeVkbNka9HM" data-toggle="modal" data-target="#trailer">
+    <img src="https://occ-0-114-116.1.nflxso.net/art/fced8/5335793f019f2a4125f8dde156d1bc3708efced8.jpg" width="220" height="342">
+    <h2>White Chicks</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="32WeiH4TrIY" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.filmaps.com/nposters/xn-246701548-300412063108.jpg.pagespeed.ic.z9pcVfAUOB.jpg" width="220" height="342">
+    <h2>The Parent Trap</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="fOS-HMiVejo" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.uphe.com/sites/default/files/2015/04/Love-Actually-Gallery-2.jpg" width="220" height="342">
+    <h2>Love Actually</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="CK2Btk6Ybm0" data-toggle="modal" data-target="#trailer">
+    <img src="http://hotcountry1035.com/wp-content/uploads/2016/12/HomeAloneThumb.jpg" width="220" height="342">
+    <h2>Home Alone</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Y7uGHY-t80I" data-toggle="modal" data-target="#trailer">
+    <img src="http://cdn1-www.comingsoon.net/assets/uploads/2016/02/singheader.jpg" width="220" height="342">
+    <h2>Sing</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="7kSuas6mRpk" data-toggle="modal" data-target="#trailer">
+    <img src="https://i.ytimg.com/vi/ot6C1ZKyiME/maxresdefault.jpg" width="220" height="342">
+    <h2>Kill Bill</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="3PsUJFEBC74" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/1/11/School_of_Rock_Poster.jpg" width="220" height="342">
+    <h2>School of Rock</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="c3sBBRxDAqk" data-toggle="modal" data-target="#trailer">
+    <img src="http://images4.fanpop.com/image/photos/22600000/rataouille-movie-cover-ratatouille-22648203-366-500.jpg" width="220" height="342">
+    <h2>Ratatouille</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="atLg2wQQxvU" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/9/9f/Midnight_in_Paris_Poster.jpg" width="220" height="342">
+    <h2>Midnight in Paris</h2>
+</div>
+
+<div class="col-md-4 col-lg-4 movie-tile text-center" data-trailer-youtube-id="PbA63a7H0bo" data-toggle="modal" data-target="#trailer">
+    <img src="https://reelisticviewsdotcom.files.wordpress.com/2016/10/the-hunger-games-1.jpg" width="220" height="342">
+    <h2>Hunger Games</h2>
+</div>
+
+    </div>
+  </body>
+</html>
